@@ -4,6 +4,9 @@
 .App-link {
   color: #61dafb;
 }
+.card {
+  margin: 0 auto;
+}
 [data-letters]:before {
   content:attr(data-letters);
   display:inline-block;
@@ -15,7 +18,6 @@
   border-radius:50%;
   background:lightgray;
   vertical-align:middle;
-  margin-right:1em;
   margin-top: 1EM;
   color:black;
   }
