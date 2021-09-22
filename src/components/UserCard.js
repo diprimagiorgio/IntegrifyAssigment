@@ -3,66 +3,40 @@ import "../App.css";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button"; // TODO create a component for the button
+import Button from "react-bootstrap/Button";
 import React, { useState, useEffect } from 'react';
 import Axios from "axios";
 import {baseUrl} from '../shared/baseUrl';
 
-const rbt = [
-    {
-      id: 1,
-      name: "Leanne Graham",
-      username: "Bret",
-      email: "Sincere@april.biz"
-    },
-    {
-        id: 1,
-        name: "Giorgio Graham",
-        username: "Bret",
-        email: "Sincere@april.biz"
-    },
-    {
-        id: 1,
-        name: "Maria Graham",
-        username: "Bret",
-        email: "Sincere@april.biz"
-    },
-    {
-        id: 1,
-        name: "Anna Graham",
-        username: "Bret",
-        email: "Sincere@april.biz"
-    }
-  ];
+
 export default function UserCard() {
-    const [robots, setRobots] = useState([]);
+    const [users, setUsers] = useState([]);
     useEffect(() => {
         Axios.get(baseUrl)
             .then((response) => {
-                setRobots(response.data)
+                setUsers(response.data)
             })
             .catch((err) => {
                 console.log(err);
             });
     });
-    const cardsArray = (robots === []) ? <div></div> : robots.map((robot, idx) => (
+    const cardsArray =  users.map((user, idx) => (
         <Col>
-        <Card style={{ width: '18rem' }}>
-            {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-            <p data-letters={robot.name.charAt(0)} />
+        <Card className="text-center" style={{ width: '18rem' }} >
+            <p data-letters={user.name.charAt(0)} />
             <Card.Body>
-                <Card.Title>{robot.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">@{robot.username}</Card.Subtitle>
+                <Card.Title>{user.name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">@{user.username}</Card.Subtitle>
                 <Card.Text>
-                    <a href="url">{robot.website}</a>
+                    <a href={user.website}>{user.website}</a>
                 </Card.Text>
-                <Button variant="primary">MORE DETAILS</Button>
+                <Button variant="primary" href={`/users/${user.id}`}>MORE DETAILS</Button>
             </Card.Body>
         </Card>   
         </Col>
     ));
     return (
-        <Row xs={1} md={2} lg={3} xl={4} className="g-4 ">
+        <Row xs={1} md={2} lg={3} xl={4} className="g-4 mt-2">
            {cardsArray}
         </Row>
     );
