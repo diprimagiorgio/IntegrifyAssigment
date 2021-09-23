@@ -39,7 +39,9 @@ const UserDetails = () => {
                 <ListGroup.Item>email: { user.email} </ListGroup.Item>
                 <ListGroup.Item>phone: { user.phone} </ListGroup.Item>
                 <ListGroup.Item>company: { user.company.name} </ListGroup.Item>
-                <ListGroup.Item>website: {user.website} </ListGroup.Item>
+                <ListGroup.Item>website: 
+                  <a href={`http://${user.website}`} target='_blank' rel="noopener noreferrer">{user.website}</a>
+                </ListGroup.Item>
                 <ListGroup.Item>address:
                   <ListGroup variant="flush">
                     <ListGroup.Item>street:{user.address.street} </ListGroup.Item>

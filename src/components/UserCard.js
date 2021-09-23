@@ -31,7 +31,7 @@ export default function UserCard() {
                 <Card.Title>{user.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">@{user.username}</Card.Subtitle>
                 <Card.Text>
-                    <a href={user.website}>{user.website}</a>
+                    <a href={`http://${user.website}`} target='_blank' rel="noopener noreferrer">{user.website}</a>
                 </Card.Text>
                 <Button variant="primary" href={`/users/${user.id}`}>MORE DETAILS</Button>
             </Card.Body>
