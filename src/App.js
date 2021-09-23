@@ -1,11 +1,11 @@
-import './App.css';
-import UserCard from './components/UserCard';
-import UserDetails from './components/UserDetails'
 import {
   BrowserRouter as Router,
   Switch,
   Route
  } from "react-router-dom";
+import UserCard from './components/UserCard';
+import UserDetails from './components/UserDetails'
+import './App.css';
 
 
 function App() {

@@ -1,28 +1,32 @@
+import React, { useState, useEffect } from 'react';
+import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../App.css";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import React, { useState, useEffect } from 'react';
-import Axios from "axios";
+import "../App.css";
 import {baseUrl} from '../shared/baseUrl';
 
 
 export default function UserCard() {
     const [users, setUsers] = useState([]);
+    async function fetchData() {
+        const res = await fetch(baseUrl);
+        res
+          .json()
+          .then(res => setUsers(res))
+          .catch(err => console.log(err));
+        console.log(res);
+      }
     useEffect(() => {
-        Axios.get(baseUrl)
-            .then((response) => {
-                setUsers(response.data)
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    });
+        // GET req to fetch user data, and store them in users
+        fetchData();
+    },[]);
+    // a new array where instead of the user's object there are Cards with the user information
     const cardsArray =  users.map((user, idx) => (
-        <Col>
-        <Card className="text-center" style={{ width: '18rem' }} >
+        <Col key={user.id.toString()}>
+        <Card  className="text-center" style={{ width: '18rem' }} >
             <p data-letters={user.name.charAt(0)} />
             <Card.Body>
                 <Card.Title>{user.name}</Card.Title>
@@ -35,6 +39,7 @@ export default function UserCard() {
         </Card>   
         </Col>
     ));
+    // return Cards in a grid, the number of cards depends on the screen size of the user
     return (
         <Row xs={1} md={2} lg={3} xl={4} className="g-4 mt-2">
            {cardsArray}
