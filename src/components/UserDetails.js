@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Axios from "axios";
 import { useParams } from 'react-router-dom'
 import Card from "react-bootstrap/Card";
 import { Link } from 'react-router-dom'

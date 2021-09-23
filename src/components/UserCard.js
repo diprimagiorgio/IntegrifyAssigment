@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
