@@ -1,6 +1,6 @@
 # Integrify
 A Possible solution to integrify [react assignment](https://docs.google.com/document/d/1eSIhICngtdovY7-iVcQL_7ygu1zjzN15oP1ll69yyjg/edit#).
-
+Here is the deployed version [website](https://upbeat-wright-d0f2d6.netlify.app/)
 
 # Technology used
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
