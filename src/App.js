@@ -15,9 +15,7 @@ function App() {
     	<Route exact path='/'>
         <UserCard></UserCard>
     	</Route>
-    	<Route path='/users/:id'>
-    		<UserDetails />
-    	</Route>
+    	<Route path='/users/:id' component={UserDetails}/>
       </Switch>
     </Router>
   );
